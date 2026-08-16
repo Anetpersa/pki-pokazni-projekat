@@ -1,0 +1,13 @@
+<p>question works!</p>
+@if (webData().length > 0) {
+    <ul>
+        @for (q of webData(); track q.questionId) {
+            <li>{{ q.text }}</li>
+        }
+    </ul>
+} @else {
+    <div class="loading">
+        <h1>Podaci se ucitavaju!</h1>
+        <p>Sacekajte dok se podaci ucitaju.</p>
+    </div>
+}
