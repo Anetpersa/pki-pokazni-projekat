@@ -1,32 +1,30 @@
-<h1>PKI 2025</h1>
+<div class="p-4">
+  <!-- Naslov -->
+  <h2 class="fw-bold mb-3">
+    <a class="text-decoration-none text-reset" routerLink="">PKI 2025</a>
+  </h2>
 
-<a routerLink="">Home</a>
-<a routerLink="about">About</a>
+  <!-- Navigacija (Home i About jedno pored drugog) -->
+  <nav class="navbar bg-body-tertiary rounded px-3 mb-4">
+    <ul class="navbar-nav flex-row gap-4">
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center gap-2" routerLink="">
+          <i class="fa-solid fa-house"></i>
+          Home
+        </a>
+      </li>
 
-<router-outlet />
+      <li class="nav-item">
+        <a class="nav-link d-flex align-items-center gap-2" routerLink="about">
+          <i class="fa-solid fa-circle-info"></i>
+          About
+        </a>
+      </li>
+    </ul>
+  </nav>
 
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-
-    <a class="navbar-brand" href="#">Navbar</a>
-
-    <div class="collapse navbar-collapse">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-
-      </ul>
-    </div>
-
-  </div>
-</nav>
+  <!-- Glavni sadržaj (između ostalog i "about works!") -->
+  <main class="pt-2">
+    <router-outlet />
+  </main>
+</div>
