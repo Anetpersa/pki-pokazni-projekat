@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { QuestionModel } from '../../models/question.model';
 import { QuestionService } from '../../services/main.service';
+import linkifyHtml from "linkify-html"
 
 @Component({
   selector: 'app-question',
@@ -15,5 +16,9 @@ export class Question {
     QuestionService.getAllAdmissionQuestions()
       .then(rsp => this.webData.set(rsp.data))
       .catch(e => this.webError.set(e))
+  }
+
+  convertToLinks(text : string) {
+    return linkifyHtml(text)
   }
 }

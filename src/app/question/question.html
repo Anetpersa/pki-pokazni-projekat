@@ -1,13 +1,31 @@
 <p>question works!</p>
+
 @if (webData().length > 0) {
-    <ul>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
         @for (q of webData(); track q.questionId) {
-            <li>{{ q.text }}</li>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" 
+                            type="button" 
+                            data-bs-toggle="collapse" 
+                            [attr.data-bs-target]="'#flush-collapse-' + q.questionId" 
+                            aria-expanded="false" 
+                            [attr.aria-controls]="'flush-collapse-' + q.questionId">
+                        {{ q.text }}
+                    </button>
+                </h2>
+                <div [id]="'flush-collapse-' + q.questionId" 
+                     class="accordion-collapse collapse" 
+                     data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body" [innerHTML]="convertToLinks(q.answer || q.text)">
+                    </div>
+                </div>
+            </div>
         }
-    </ul>
+    </div>
 } @else {
     <div class="loading">
-        <h1>Podaci se ucitavaju!</h1>
-        <p>Sacekajte dok se podaci ucitaju.</p>
+        <h1>Podaci se učitavaju!</h1>
+        <p>Sačekajte dok se podaci učitaju.</p>
     </div>
 }
