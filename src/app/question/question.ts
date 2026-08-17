@@ -8,14 +8,13 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-question',
   imports: [FormsModule],
   templateUrl: './question.html',
-  styleUrl: './question.css',
+  styleUrl: './question.css'
 })
 export class Question {
   protected webData = signal<QuestionModel[]>([])
   protected webError = signal<any>(null)
   protected search: string = ''
   protected previousSearch: string = 'N/A'
-
 
   constructor() {
     this.loadQuestions()
@@ -27,12 +26,9 @@ export class Question {
     QuestionService.getAllAdmissionQuestions(this.search)
       .then(rsp => this.webData.set(rsp.data))
       .catch(e => this.webError.set(e))
-
   }
 
   convertToLinks(text: string) {
     return linkifyHtml(text)
   }
-
-
 }
