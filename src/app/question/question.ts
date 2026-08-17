@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { QuestionModel } from '../../models/question.model';
-import { QuestionService } from '../../services/main.service';
+import { QuestionService } from '../../services/question.service';
 import linkifyHtml from "linkify-html"
 import { FormsModule } from '@angular/forms';
 
